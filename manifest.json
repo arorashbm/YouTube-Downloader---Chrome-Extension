@@ -1,0 +1,21 @@
+{
+  "name": "Simple YouTube Downloader",
+  "description": "Download YouTube videos simpler than before",
+  "version": "0.1",
+  "author": "Shubham Arora",
+  "manifest_version": 2,
+  "web_accessible_resources": ["src/youtubedl.js"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["src/loader.js"],
+      "css": ["src/styles.css"]
+    }
+  ],
+  "permissions": [
+    "downloads"
+  ],
+  "background": {
+    "scripts": ["src/background.js"]
+  }
+}
