@@ -1,23 +1,45 @@
 #download-button {
-  font-size: 16px;
+  position: relative;
+  background-color: #CC0000;
+  border: none;
+  color: white;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 14px;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  width:40px;
+  height:10px;
+  border-radius:2px 2px;
   z-index: 10000 !important;
 }
 
 #download-dropdown {
+  position: relative;
   height: auto;
   width: auto;
+  top: 0px;
+  left: 0px;
   z-index: 10000;
-  background: white;
+  background: #000;
   margin-top: 50%;
   margin-left: 50%;
-  display: block;
-  position: absolute;
+  display: inline-block;
 }
 
 #download-dropdown > ul > a {
   display: none;
+  position: relative;
   font-size: 20px;
   padding: 10px;
   text-decoration: none;
   color: #982;
 }
+
+#download-dropdown > ul > a:hover {
+  color: #000;
+  background: #982;
+}
+

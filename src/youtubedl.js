@@ -3,15 +3,29 @@ window.onload = function(){
   var videoDetails = ytplayer.config.args.player_response;
   var videoDetailsParse = JSON.parse(videoDetails);
   var videoDetailsCut = videoDetailsParse["streamingData"]["adaptiveFormats"];
-  
+  var body = document.getElementsByTagName('body')[0];
+
+  function clicked(e) {
+    if(e.target.id == "text")
+      clickDownload();
+    else
+      removeDropdown();
+  }
+
+  function removeDropdown(e) {
+    console.log(e);
+    for(i=0;i<li.length;i++) {
+      if(li[i].style.display == "block")
+        li[i].style.display = "";
+    }
+  }
+
   function clickDownload(){
-    var dropdown = document.getElementById("download-dropdown");
-    var ul = dropdown.children;
-    var li = ul[0].children;
+    console.log("hello");
     for(i=0;i<li.length;i++) {
       if(li[i].style.display == "")
         li[i].style.display = "block";
-      else if(li[i].style.display == "block")
+      else
         li[i].style.display = "";
     }
   }
@@ -41,6 +55,7 @@ window.onload = function(){
 
   var string = document.createElement("p");
   string.id = "text";
+  string.className = "style-scope ytd-button-renderer style-default size-default"
   string.innerHTML = "Download";
   //alert("asdfasd");
   var place = document.getElementById("top-level-buttons");
@@ -54,11 +69,15 @@ window.onload = function(){
 
   var dropdown = document.createElement("div");
   dropdown.id = "download-dropdown";
-  dropdown.className = "not-shown";
   document.body.appendChild(dropdown);
   var droplist = document.createElement("ul");
   dropdown.appendChild(droplist);
+
   var j=0; // for no links condition
+  var dropdown = document.getElementById("download-dropdown");
+  var ul = dropdown.children;
+  var li = ul[0].children;
+
   for(i=0;i<videoDetailsCut.length;i++){
     var item = document.createElement("a");
     if (videoDetailsCut[i]['url'] == null){
@@ -75,10 +94,13 @@ window.onload = function(){
     item.addEventListener("click", getNameUrl);
     droplist.appendChild(item);
   }
+
   if (i==j)
     btn.onclick=function(){
       alert("Couldn't generate links for this video!!");
     };
   else
     btn.addEventListener("click", clickDownload);
+
+  document.addEventListener("click", clicked);
 }

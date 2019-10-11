@@ -2,8 +2,14 @@
   "name": "Simple YouTube Downloader",
   "description": "Download YouTube videos simpler than before",
   "version": "0.1",
+  "icons": {"16": "img/ytdl16.png",
+            "48": "img/ytdl48.png",
+            "128": "img/ytdl128.png" },
   "author": "Shubham Arora",
   "manifest_version": 2,
+  "browser_action":   {
+    "default_icon": "img/ytdl128.png"
+  },
   "web_accessible_resources": ["src/youtubedl.js"],
   "content_scripts": [
     {
