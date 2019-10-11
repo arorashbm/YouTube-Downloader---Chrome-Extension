@@ -1,0 +1,23 @@
+#download-button {
+  font-size: 16px;
+  z-index: 10000 !important;
+}
+
+#download-dropdown {
+  height: auto;
+  width: auto;
+  z-index: 10000;
+  background: white;
+  margin-top: 50%;
+  margin-left: 50%;
+  display: block;
+  position: absolute;
+}
+
+#download-dropdown > ul > a {
+  display: none;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: #982;
+}
