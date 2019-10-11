@@ -57,7 +57,6 @@ window.onload = function(){
   string.id = "text";
   string.className = "style-scope ytd-button-renderer style-default size-default"
   string.innerHTML = "Download";
-  //alert("asdfasd");
   var place = document.getElementById("top-level-buttons");
   place.appendChild(btn);
 
@@ -100,7 +99,7 @@ window.onload = function(){
       alert("Couldn't generate links for this video!!");
     };
   else
-    btn.addEventListener("click", clickDownload);
+    document.addEventListener("click", clicked);
+    /*btn.addEventListener("click", clickDownload);*/
 
-  document.addEventListener("click", clicked);
 }
