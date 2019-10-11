@@ -27,6 +27,8 @@ window.onload = function(){
     for(i=0;i<li.length;i++) {
       if(li[i].style.display == "")
         li[i].style.display = "block";
+      else
+        li[i].style.display = "";
     }
   }
 
