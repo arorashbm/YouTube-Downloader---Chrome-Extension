@@ -3,7 +3,7 @@ window.onload = function(){
   var videoDetails = ytplayer.config.args.player_response;
   var videoDetailsParse = JSON.parse(videoDetails);
   var videoDetailsCut = videoDetailsParse["streamingData"]["adaptiveFormats"];
-
+  
   function clickDownload(){
     var dropdown = document.getElementById("download-dropdown");
     var ul = dropdown.children;
@@ -42,7 +42,7 @@ window.onload = function(){
   var string = document.createElement("p");
   string.id = "text";
   string.innerHTML = "Download";
-
+  //alert("asdfasd");
   var place = document.getElementById("top-level-buttons");
   place.appendChild(btn);
 
@@ -58,9 +58,13 @@ window.onload = function(){
   document.body.appendChild(dropdown);
   var droplist = document.createElement("ul");
   dropdown.appendChild(droplist);
-
+  var j=0; // for no links condition
   for(i=0;i<videoDetailsCut.length;i++){
     var item = document.createElement("a");
+    if (videoDetailsCut[i]['url'] == null){
+      j++;
+      continue;
+    }
     item.setAttribute("href", videoDetailsCut[i]['url']);
     item.setAttribute("target", "_blank");
     item.setAttribute("data-type", videoDetailsCut[i]['mimeType']);
@@ -71,6 +75,10 @@ window.onload = function(){
     item.addEventListener("click", getNameUrl);
     droplist.appendChild(item);
   }
-
-  btn.addEventListener("click", clickDownload);
+  if (i==j)
+    btn.onclick=function(){
+      alert("Couldn't generate links for this video!!");
+    };
+  else
+    btn.addEventListener("click", clickDownload);
 }
