@@ -1,6 +1,7 @@
 #download-button {
   font-size: 16px;
   z-index: 10000 !important;
+  position: relative;
 }
 
 #download-dropdown {
