@@ -17,20 +17,28 @@
 }
 
 #download-dropdown {
+  position: relative;
   height: auto;
   width: auto;
+  top: 0px;
+  left: 0px;
   z-index: 10000;
   background: #000;
   margin-top: 50%;
   margin-left: 50%;
-  display: block;
-  position: absolute;
+  display: inline-block;
 }
 
 #download-dropdown > ul > a {
   display: none;
+  position: relative;
   font-size: 20px;
   padding: 10px;
   text-decoration: none;
   color: #982;
+}
+
+#download-dropdown > ul > a:hover {
+  color: #000;
+  background: #982;
 }
